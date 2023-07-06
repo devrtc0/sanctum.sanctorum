@@ -44,4 +44,4 @@ WORKDIR=$(dirname "$(readlink -f "$0")")
 TARGET="$WORKDIR/.sanctum.sanctorum"
 
 msg 'extracting sanctum.sanctorum'
-printf 'U2FsdGVkX1/ael5wELDmgywBxnxn5TDQBOAmAskuUsDsaLBJg/J4MGdV/NKXAKyP+aFFcCO32ZSrG4Hlvlh8vc4KkH8rgr1RiP/Dg560ZQxrhh6nrus4Q0wazJlFcaAUgObUxstVHP4dNuVL3DXu5A==\n' | openssl aes-256-cbc -a -d -pbkdf2 -pass "pass:$PASSWORD" -out "$TARGET"
+printf 'U2FsdGVkX1+51H3BjLID3Ce576ttY7VuKOEDVnCfH7UNuCh8FcI4SeOcsB5KnqCUyKHqa1+fZVtvOM5S034VhQ==\n' | openssl aes-256-cbc -a -d -pbkdf2 -pass "pass:$PASSWORD" -out "$TARGET"
