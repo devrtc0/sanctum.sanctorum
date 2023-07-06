@@ -35,7 +35,7 @@ PASSWORD="$1"
 
 HASH=$(printf '%s' "$PASSWORD" | shasum -a 512 | awk '{ print $1 }')
 HASH=${HASH:0:64}
-if [ "$HASH" != '2b54c788564c6d81101e834ce39f0e9a2b6281f3f504894c89228550ecebec68' ]; then
+if [ "$HASH" != 'd3609460a9f66f31b2bd36661903b1424087744290285a6a6a3a68207bd0f008' ]; then
 	error "wrong password"
 	exit -1
 fi
@@ -44,4 +44,4 @@ WORKDIR=$(dirname "$(readlink -f "$0")")
 TARGET="$WORKDIR/.sanctum.sanctorum"
 
 msg 'extracting sanctum.sanctorum'
-printf 'U2FsdGVkX180Q8cix9aK/qAAXO94e2puaQ8DcWNmtvcqapUZ9hd5yyi8MQ0lwsftT1PWl93nzsi3E9Ug1loScw==\n' | openssl aes-256-cbc -a -d -pbkdf2 -pass "pass:$PASSWORD" -out "$TARGET"
+printf 'U2FsdGVkX1/ael5wELDmgywBxnxn5TDQBOAmAskuUsDsaLBJg/J4MGdV/NKXAKyP+aFFcCO32ZSrG4Hlvlh8vc4KkH8rgr1RiP/Dg560ZQxrhh6nrus4Q0wazJlFcaAUgObUxstVHP4dNuVL3DXu5A==\n' | openssl aes-256-cbc -a -d -pbkdf2 -pass "pass:$PASSWORD" -out "$TARGET"
