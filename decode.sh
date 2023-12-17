@@ -40,7 +40,7 @@ if [ "$HASH" != 'abf9c11b33a42bc576694f7ec0b891e1f780c12811f4032018ba9b5f98dfee1
 fi
 
 WORKDIR=$(dirname "$(readlink -f "$0")")
-TARGET="$WORKDIR/sanctum.sanctorum.kdbx"
+TARGET="$WORKDIR/dec/sanctum.sanctorum.kdbx"
 ENC_FILE="$WORKDIR/sanctum.sanctorum.enc"
 
 if [ ! -f "$ENC_FILE" ]; then
