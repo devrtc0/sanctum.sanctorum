@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+set -e
 
 COLORS="true"
 enable_colors() {
