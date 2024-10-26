@@ -41,12 +41,15 @@ fi
 
 WORKDIR=$(dirname "$(readlink -f "$0")")
 TARGET="$WORKDIR/dec/sanctum.sanctorum.kdbx"
+TARGETDIR=$(dirname "$TARGET")
 ENC_FILE="$WORKDIR/sanctum.sanctorum.enc"
 
 if [ ! -f "$ENC_FILE" ]; then
 	error "no file $ENC_FILE"
 	exit -1
 fi
+
+mkdir -p "$TARGETDIR"
 
 msg 'decrypting'
 openssl aes-256-cbc -d -pass "pass:$1" -salt -pbkdf2 -in "$ENC_FILE" -out "$TARGET"
